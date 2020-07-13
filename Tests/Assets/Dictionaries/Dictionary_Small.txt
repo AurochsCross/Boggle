@@ -1,10 +1,6 @@
-﻿using System;
-namespace Tests.Assets.Dictionaries
-{
- public class Dictionary_Small
- {
-     public Dictionary_Small()
-     {
-     }
- }
-}
+﻿foo
+bar
+food
+football
+forest
+fast

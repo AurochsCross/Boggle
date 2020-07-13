@@ -1,10 +1,10 @@
-﻿using System;
-namespace Boggle.Interfaces
+﻿using System.Collections.Generic;
+
+namespace Boggle
 {
-    public class IResults
+    public interface IResults
     {
-        public IResults()
-        {
-        }
+        IEnumerable<string> Words { get; } // unique found words
+        int Score { get; }                 // total score for all words found
     }
 }

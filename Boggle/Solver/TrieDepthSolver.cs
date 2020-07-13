@@ -1,10 +1,16 @@
 ﻿using System;
 namespace Boggle.Solver
 {
-    public class TrieDepthSolverr
+    public class TrieDepthSolver: ISolver
     {
-        public TrieDepthSolverr()
+        public TrieDepthSolver()
         {
+
+        }
+
+        public IResults FindWords(char[,] board)
+        {
+            throw new NotImplementedException();
         }
     }
 }
