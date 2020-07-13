@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Linq;
+using System.Collections.Generic;
 using Boggle.Solver;
 
 namespace Boggle
@@ -7,9 +9,7 @@ namespace Boggle
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
             var program = new Program();
-
             program.SolveSet1();
         }
 
@@ -19,7 +19,8 @@ namespace Boggle
             var result = solver.FindWords(board);
 
             Console.WriteLine(String.Format("Score: {0}", result.Score));
-            foreach (var word in result.Words)
+
+            foreach (var word in result.Words.ToArray().OrderBy(x => x))
             {
                 Console.WriteLine(word);
             }
@@ -27,7 +28,7 @@ namespace Boggle
 
         void SolveSet1()
         {
-            var path = "Assets/Dictionaries/Dictionary_Small.txt";
+            var path = "Assets/Dictionaries/Dictionary_Single.txt";
             var board = Utility.BoardParser.ParseFromFile("Assets/Boards/Board_3x3.txt");
             Solve(path, board);
         }

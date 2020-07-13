@@ -31,13 +31,19 @@ namespace Boggle.Solver
 
         private void Find(Node lastNode, string assembledWord, char[,] board, HashSet<(int, int)> visited, int x, int y)
         {
-            var currentChar = board[x, y];
+            var currentChar = board[y, x];
 
             var currentNode = lastNode.FindChildNode(currentChar);
 
             if (currentNode != null)
             {
                 assembledWord += currentChar;
+
+                if (assembledWord == "datiz")
+                {
+                    var temp = 0;
+                }
+
                 if (currentNode.IsStandalone)
                     foundWords.Add(assembledWord);
 
@@ -47,6 +53,8 @@ namespace Boggle.Solver
                 {
                     Find(currentNode, assembledWord, board, visited, x + neighbour.Item1, y + neighbour.Item2);
                 }
+
+                visited.Remove((x, y));
             }
         }
     }
