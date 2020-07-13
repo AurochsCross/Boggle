@@ -14,6 +14,21 @@ namespace Boggle.Dictionary
                 return Children.Count == 0;
             }
         }
+        public bool IsStandalone
+        {
+            get
+            {
+                foreach (var child in Children)
+                {
+                    if (child.IsLeaf)
+                    {
+                        return true;
+                    }
+                }
+
+                return false;
+            }
+        }
 
         public Node(char value, int depth)
         {

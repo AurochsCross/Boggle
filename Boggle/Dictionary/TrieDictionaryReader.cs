@@ -20,7 +20,7 @@ namespace Boggle.Dictionary
             {
                 while (!reader.EndOfStream) {
                     string line = reader.ReadLine();
-                    result.Insert(line);
+                    result.Insert(line.ToLower());
                 }
             }
 

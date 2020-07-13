@@ -9,8 +9,24 @@
     <Folder Include="Interfaces\" />
     <Folder Include="Dictionary\" />
     <Folder Include="Solver\" />
-    <Folder Include="Utilities\" />
+    <Folder Include="Utility\" />
     <Folder Include="Assets\" />
     <Folder Include="Assets\Dictionaries\" />
+    <Folder Include="Assets\Boards\" />
+    <Folder Include="Model\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Update="Assets\Dictionaries\Dictionary_Big.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="Assets\Boards\Board_3x3.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="Assets\Dictionaries\Dictionary_Small.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="Assets\Dictionaries\Dictionary_Big2.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
   </ItemGroup>
 </Project>

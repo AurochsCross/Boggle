@@ -18,12 +18,19 @@
   <ItemGroup>
     <Folder Include="Assets\" />
     <Folder Include="Assets\Dictionaries\" />
+    <Folder Include="Assets\Boards\" />
   </ItemGroup>
   <ItemGroup>
     <None Update="Assets\Dictionaries\Dictionary_Small.txt">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
     <None Update="Assets\Dictionaries\Dictionary_CountSize10.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="Assets\Boards\Board_ReadTest.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="Assets\Dictionaries\Dictionary_Big2.txt">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
   </ItemGroup>

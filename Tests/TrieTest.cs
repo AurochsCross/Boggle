@@ -56,6 +56,32 @@ namespace Tests
         }
 
         [TestMethod]
+        public void TriePrefixIsStandalone()
+        {
+            var testWord = "test";
+            List<string> words = new List<string> { "test", "tent", "ball" };
+            var trie = new Trie();
+            trie.InsertRange(words);
+
+            var prefix = trie.Prefix(testWord);
+
+            Assert.IsTrue(prefix.IsStandalone);
+        }
+
+        [TestMethod]
+        public void TriePrefixIsNotStandalone()
+        {
+            var testWord = "tes";
+            List<string> words = new List<string> { "test", "tent", "ball" };
+            var trie = new Trie();
+            trie.InsertRange(words);
+
+            var prefix = trie.Prefix(testWord);
+
+            Assert.IsFalse(prefix.IsStandalone);
+        }
+
+        [TestMethod]
         public void TrieSearchDidFindTest()
         {
             List<string> words = new List<string> { "test", "tent", "ball" };
@@ -88,6 +114,18 @@ namespace Tests
             var trie = reader.ReadAndGenerate();
 
             Assert.AreEqual(trie.Count, 10);
+        }
+
+        [TestMethod]
+        public void TrieCreateFromLargeSetFile()
+        {
+            var fileLocation = "Assets/Dictionaries/Dictionary_Big2.txt";
+            TrieDictionaryReader reader = new TrieDictionaryReader(fileLocation);
+
+            var trie = reader.ReadAndGenerate();
+            var didFind = trie.Search("hello");
+
+            Assert.IsTrue(didFind);
         }
     }
 }

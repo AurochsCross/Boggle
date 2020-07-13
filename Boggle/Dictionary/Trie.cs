@@ -33,7 +33,7 @@ namespace Boggle.Dictionary
 
         public bool Search(string s)
         {
-            var prefix = Prefix(s + '$');
+            var prefix = Prefix(s.ToLower() + '$');
             return prefix.Depth == s.Length + 1;
         }
 
