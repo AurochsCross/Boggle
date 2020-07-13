@@ -1,0 +1,10 @@
+﻿using System;
+namespace Tests.Assets.Dictionaries
+{
+ public class Dictionary_CountSize10
+ {
+     public Dictionary_CountSize10()
+     {
+     }
+ }
+}
