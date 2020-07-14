@@ -30,6 +30,12 @@
     <None Update="Assets\Dictionaries\Dictionary_Single.txt">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
+    <None Update="Assets\Boards\Board_dood.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="Assets\Dictionaries\Dictionary_dood.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <Compile Update="Assets\Dictionaries\Dictionary_Single.cs">

@@ -1,5 +1,5 @@
 ﻿using Boggle.Models.Results;
-namespace Boggle.Solvers
+namespace Boggle
 {
     public interface ISolver
     {

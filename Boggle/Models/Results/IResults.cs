@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace Boggle.Models.Results
+namespace Boggle
 {
     public interface IResults
     {
