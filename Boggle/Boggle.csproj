@@ -8,34 +8,8 @@
   <ItemGroup>
     <Folder Include="Solvers\" />
     <Folder Include="Utilities\" />
-    <Folder Include="Assets\" />
-    <Folder Include="Assets\Dictionaries\" />
-    <Folder Include="Assets\Boards\" />
     <Folder Include="Models\" />
     <Folder Include="Models\Results\" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Update="Assets\Dictionaries\Dictionary_Big.txt">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
-    <None Update="Assets\Boards\Board_3x3.txt">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
-    <None Update="Assets\Dictionaries\Dictionary_Small.txt">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
-    <None Update="Assets\Dictionaries\Dictionary_Big2.txt">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
-    <None Update="Assets\Dictionaries\Dictionary_Single.txt">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
-    <None Update="Assets\Boards\Board_dood.txt">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
-    <None Update="Assets\Dictionaries\Dictionary_dood.txt">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
   </ItemGroup>
   <ItemGroup>
     <Compile Update="Assets\Dictionaries\Dictionary_Single.cs">

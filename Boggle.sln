@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Boggle", "Boggle\Boggle.csproj", "{C7E5F150-6352-4640-9618-B2FE3E7C2AA6}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tests", "Tests\Tests.csproj", "{D5D16023-B299-4197-8162-86AC712CE38F}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Boggle.Tests", "Tests\Boggle.Tests.csproj", "{D5D16023-B299-4197-8162-86AC712CE38F}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BoggleLauncher", "BoggleLauncher\BoggleLauncher.csproj", "{A9961713-2666-431A-98C9-72AAB46773D6}"
 EndProject
