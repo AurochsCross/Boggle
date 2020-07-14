@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace Boggle.Model
+namespace Boggle.Models.Results
 {
     public class BoggleResults: IResults
     {

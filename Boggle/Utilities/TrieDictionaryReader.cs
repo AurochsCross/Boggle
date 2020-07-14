@@ -1,21 +1,15 @@
 ﻿using System.IO;
+using Boggle.Models;
 
-namespace Boggle.Dictionary
+namespace Boggle.Utilities
 {
     public class TrieDictionaryReader
     {
-        private string _dictionaryPath;
-
-        public TrieDictionaryReader(string dictionaryPath)
-        {
-            _dictionaryPath = dictionaryPath;
-        }
-
-        public Trie ReadAndGenerate()
+        static public Trie ReadAndGenerate(string dictionaryPath)
         {
             var result = new Trie();
 
-            FileStream fileStream = new FileStream(_dictionaryPath, FileMode.Open);
+            FileStream fileStream = new FileStream(dictionaryPath, FileMode.Open);
             using (StreamReader reader = new StreamReader(fileStream))
             {
                 while (!reader.EndOfStream) {

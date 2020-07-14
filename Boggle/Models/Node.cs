@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace Boggle.Dictionary
+namespace Boggle.Models
 {
     public class Node
     {

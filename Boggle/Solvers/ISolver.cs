@@ -1,5 +1,5 @@
-﻿using System;
-namespace Boggle
+﻿using Boggle.Models.Results;
+namespace Boggle.Solvers
 {
     public interface ISolver
     {

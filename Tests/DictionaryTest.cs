@@ -1,6 +1,6 @@
 ﻿using System;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using Boggle.Dictionary;
+using Boggle.Models;
 
 namespace Tests
 {

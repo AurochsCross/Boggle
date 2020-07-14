@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Linq;
-using System.Collections.Generic;
-using Boggle.Solver;
+using Boggle.Solvers;
 
 namespace Boggle
 {
@@ -29,7 +28,7 @@ namespace Boggle
         void SolveSet1()
         {
             var path = "Assets/Dictionaries/Dictionary_Single.txt";
-            var board = Utility.BoardParser.ParseFromFile("Assets/Boards/Board_3x3.txt");
+            var board = Utilities.BoardParser.ParseFromFile("Assets/Boards/Board_3x3.txt");
             Solve(path, board);
         }
 

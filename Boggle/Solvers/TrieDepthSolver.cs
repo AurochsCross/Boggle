@@ -1,19 +1,19 @@
 ﻿using System;
 using System.Collections.Generic;
-using Boggle.Dictionary;
+using Boggle.Models;
+using Boggle.Models.Results;
+using Boggle.Utilities;
 
-namespace Boggle.Solver
+namespace Boggle.Solvers
 {
     public class TrieDepthSolver: ISolver
     {
-        private (int, int)[] _neighbours = { (-1, -1), (0, -1), (1, -1), (-1, 0), (1, 0), (-1, 1), (0, 1), (1, 1) };
         private Trie _trie;
         private HashSet<string> foundWords = new HashSet<string>();
 
         public TrieDepthSolver(string dictionaryPath)
         {
-            var dictionaryReader = new TrieDictionaryReader(dictionaryPath);
-            _trie = dictionaryReader.ReadAndGenerate();
+            _trie = TrieDictionaryReader.ReadAndGenerate(dictionaryPath);
         }
 
         public IResults FindWords(char[,] board)
@@ -26,30 +26,24 @@ namespace Boggle.Solver
                 }
             }
 
-            return new Model.BoggleResults(foundWords);
+            return new BoggleResults(foundWords);
         }
 
         private void Find(Node lastNode, string assembledWord, char[,] board, HashSet<(int, int)> visited, int x, int y)
         {
             var currentChar = board[y, x];
-
             var currentNode = lastNode.FindChildNode(currentChar);
 
             if (currentNode != null)
             {
                 assembledWord += currentChar;
 
-                if (assembledWord == "datiz")
-                {
-                    var temp = 0;
-                }
-
                 if (currentNode.IsStandalone)
                     foundWords.Add(assembledWord);
 
                 visited.Add((x, y));
 
-                foreach (var neighbour in Utility.Mover.AvailableNeighbours(visited, x, y, board.GetLength(0), board.GetLength(1)))
+                foreach (var neighbour in Mover.AvailableNeighbours(visited, x, y, board.GetLength(0), board.GetLength(1)))
                 {
                     Find(currentNode, assembledWord, board, visited, x + neighbour.Item1, y + neighbour.Item2);
                 }

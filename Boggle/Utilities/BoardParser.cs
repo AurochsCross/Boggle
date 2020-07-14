@@ -1,7 +1,7 @@
 ﻿using System.IO;
 using System.Linq;
 
-namespace Boggle.Utility
+namespace Boggle.Utilities
 {
     public class BoardParser
     {

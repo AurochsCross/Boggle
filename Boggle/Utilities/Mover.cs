@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace Boggle.Utility
+namespace Boggle.Utilities
 {
     public class Mover
     {

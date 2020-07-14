@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using Boggle.Dictionary;
+using Boggle.Models;
+using Boggle.Utilities;
 
 namespace Tests
 {
@@ -109,9 +110,8 @@ namespace Tests
         public void TrieCreateFromFile()
         {
             var fileLocation = "Assets/Dictionaries/Dictionary_CountSize10.txt";
-            TrieDictionaryReader reader = new TrieDictionaryReader(fileLocation);
 
-            var trie = reader.ReadAndGenerate();
+            var trie = TrieDictionaryReader.ReadAndGenerate(fileLocation);
 
             Assert.AreEqual(trie.Count, 10);
         }
@@ -120,9 +120,8 @@ namespace Tests
         public void TrieCreateFromLargeSetFile()
         {
             var fileLocation = "Assets/Dictionaries/Dictionary_Big2.txt";
-            TrieDictionaryReader reader = new TrieDictionaryReader(fileLocation);
 
-            var trie = reader.ReadAndGenerate();
+            var trie = TrieDictionaryReader.ReadAndGenerate(fileLocation);
             var didFind = trie.Search("hello");
 
             Assert.IsTrue(didFind);
