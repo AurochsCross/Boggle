@@ -9,13 +9,13 @@ namespace BoggleLauncher
         static void Main(string[] args)
         {
             var program = new Program();
-            //program.SolveSet1();
-            //program.SolveSet2();
-            //program.SolveSet3();
-            //program.SolveSet4();
-            //program.SolveSet5();
-            //program.SolveSet6();
-            //program.SolveSet7();
+            program.SolveSet1();
+            program.SolveSet2();
+            program.SolveSet3();
+            program.SolveSet4();
+            program.SolveSet5();
+            program.SolveSet6();
+            program.SolveSet7();
             program.SolveSet8();
         }
 

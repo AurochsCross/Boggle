@@ -37,6 +37,11 @@ namespace Boggle.Solvers
             if (currentNode != null)
             {
                 assembledWord += currentChar;
+                if (currentChar == 'q')
+                {
+                    assembledWord += 'u';
+                    currentNode = currentNode.FindChildNode('u');
+                }
 
                 if (currentNode.IsStandalone)
                     foundWords.Add(assembledWord);
