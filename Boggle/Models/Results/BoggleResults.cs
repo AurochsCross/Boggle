@@ -1,29 +1,32 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace Boggle.Models.Results
 {
-    public class BoggleResults: IResults
+    public class BoggleResults : IResults
     {
         public IEnumerable<string> Words { get; private set; }
-        private readonly Hashtable _scores = new Hashtable { { 0, 0 }, { 1, 0 }, { 2, 0 }, { 3, 1 }, { 4, 1 }, { 5, 2 }, { 6, 3 }, { 7, 5 }};
+        private readonly int[] _scores = { 0, 0, 0 ,1, 1, 2, 3, 5 };
 
         public int Score
         {
             get
             {
-                var result = 0;
-
-                foreach (var word in Words)
+                return Words.Aggregate(0, (accumulate, value) =>
                 {
-                    var score = _scores[word.Length];
-                    if (score != null)
-                        result += (int)score;
+                    var length = value.Length;
+                    if (length <= _scores.Length)
+                    {
+                        accumulate += _scores[length];
+                    }
                     else
-                        result += 11;
-                }
+                    {
+                        accumulate += 11;
+                    }
 
-                return result;
+                    return accumulate;
+                });
             }
         }
 

@@ -4,24 +4,26 @@ namespace Boggle.Models
 {
     public class Trie
     {
+        private const char TRIE_START = '^';
+        private const char TRIE_END = '$';
+
         public readonly Node root;
 
-        public int Count { get { return _count; } }
-        private int _count = 0;
+        public int Count { get; private set; }
 
         public Trie()
         {
-            root = new Node('^', 0);
+            root = new Node(TRIE_START, 0);
         }
 
-        public Node Prefix(string s)
+        public Node Prefix(string searchString)
         {
             var currentNode = root;
             var result = currentNode;
 
-            foreach (var c in s)
+            foreach (var searchChar in searchString)
             {
-                currentNode = currentNode.FindChildNode(c);
+                currentNode = currentNode.FindChildNode(searchChar);
                 if (currentNode == null)
                     break;
 
@@ -31,10 +33,10 @@ namespace Boggle.Models
             return result;
         }
 
-        public bool Search(string s)
+        public bool Search(string searchString)
         {
-            var prefix = Prefix(s.ToLower() + '$');
-            return prefix.Depth == s.Length + 1;
+            var prefix = Prefix(searchString.ToLower() + TRIE_END);
+            return prefix.Depth == searchString.Length + 1;
         }
 
         public void InsertRange(List<string> items)
@@ -43,20 +45,20 @@ namespace Boggle.Models
                 Insert(items[i]);
         }
 
-        public void Insert(string s)
+        public void Insert(string stringToInsert)
         {
-            var commonPrefix = Prefix(s);
+            var commonPrefix = Prefix(stringToInsert);
             var current = commonPrefix;
 
-            for (var i = current.Depth; i < s.Length; i++)
+            for (var i = current.Depth; i < stringToInsert.Length; i++)
             {
-                var newNode = new Node(s[i], current.Depth + 1);
+                var newNode = new Node(stringToInsert[i], current.Depth + 1);
                 current.Children.Add(newNode);
                 current = newNode;
-                _count++;
+                Count++;
             }
 
-            current.Children.Add(new Node('$', current.Depth + 1));
+            current.Children.Add(new Node(TRIE_END, current.Depth + 1));
         }
     }
 }

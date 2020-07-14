@@ -10,7 +10,7 @@ class Program
         program.SolveSet1();
     }
 
-    void Solve(string path, char[,] board)
+    internal void Solve(string path, char[,] board)
     {
         ISolver solver = MyBoggleSolution.CreateSolver(path);
         var result = solver.FindWords(board);
@@ -23,9 +23,9 @@ class Program
         }
     }
 
-    void SolveSet1()
+    internal void SolveSet1()
     {
-        var path = "Assets/Dictionaries/Dictionary_dood.txt";
+        var path = "Assets/Dictionaries/Dictionary_doodo.txt";
         var board = Boggle.Utilities.BoardParser.ParseFromFile("Assets/Boards/Board_dood.txt");
         Solve(path, board);
     }

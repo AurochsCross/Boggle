@@ -7,7 +7,7 @@ namespace Tests
     public class ResultTests
     {
         [TestMethod]
-        public void ResultScoreZeroTest()
+        public void ShortWordsScoreNoPoints()
         {
             string[] words = { "ab", "a", "cd", "", "gx" };
 
@@ -18,7 +18,7 @@ namespace Tests
         }
 
         [TestMethod]
-        public void ResultScoreNormalTest()
+        public void VariousWordsScoreCorrectAmountOfPoints()
         {
             string[] words = { "abc", "degf", "ghiew", "jklmno", "mnopqrs" };
 
@@ -29,7 +29,7 @@ namespace Tests
         }
 
         [TestMethod]
-        public void ResultScoreBigWordsTest()
+        public void BigWordsScoreCorrectAmountOfPoints()
         {
             string[] words = { "abcfwefowooo", "degfwegweiwecw", "ghiewweiiigwe", "jklmnocweiijijiwe", "mnopqrswegjiwjicwe" };
 
@@ -40,7 +40,7 @@ namespace Tests
         }
 
         [TestMethod]
-        public void ResultScoreNoWordsTest()
+        public void NoWordsScoreNoPoints()
         {
             string[] words = { };
 

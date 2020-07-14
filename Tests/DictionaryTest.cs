@@ -8,7 +8,7 @@ namespace Tests
     public class DictionaryTest
     {
         [TestMethod]
-        public void FindChildNodeDidFindTest()
+        public void NodeDoesFindExistingChild()
         {
             Node parentNode = new Node('*', 0);
             Node childNodeA = new Node('a', 1);
@@ -24,7 +24,7 @@ namespace Tests
         }
 
         [TestMethod]
-        public void FindChildNodeDidNotFindTest()
+        public void NodeDoesNotFindNonExistantChild()
         {
             Node parentNode = new Node('*', 0);
             Node childNodeA = new Node('a', 1);

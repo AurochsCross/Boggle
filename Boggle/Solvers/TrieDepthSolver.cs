@@ -31,7 +31,7 @@ namespace Boggle.Solvers
 
         private void Find(Node lastNode, string assembledWord, char[,] board, HashSet<(int, int)> visited, int x, int y)
         {
-            var currentChar = board[y, x];
+            var currentChar = board[x, y];
             var currentNode = lastNode.FindChildNode(currentChar);
 
             if (currentNode != null)

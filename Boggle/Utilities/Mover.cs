@@ -1,28 +1,26 @@
-﻿using System;
+﻿using System.Linq;
 using System.Collections.Generic;
 
 namespace Boggle.Utilities
 {
     public class Mover
     {
-        readonly static (int, int)[] Neighbours = { (-1, -1), (0, -1), (1, -1), (-1, 0), (1, 0), (-1, 1), (0, 1), (1, 1) };
+        private static readonly (int, int)[] _neighbours = { (-1, -1), (0, -1), (1, -1), (-1, 0), (1, 0), (-1, 1), (0, 1), (1, 1) };
 
         public static HashSet<(int, int)> AvailableNeighbours(HashSet<(int, int)> visited, int x, int y, int boardWidth, int boardHeight)
         {
-            var availableNeighbours = new HashSet<(int, int)>();
-
-            foreach (var neighbour in Neighbours)
+            return _neighbours.Aggregate(new HashSet<(int, int)>(), (set, neighbour) =>
             {
                 var dx = x + neighbour.Item1;
                 var dy = y + neighbour.Item2;
 
                 if (!visited.Contains((dx, dy)) && dx >= 0 && dy >= 0 && dx < boardWidth && dy < boardHeight)
                 {
-                    availableNeighbours.Add(neighbour);
+                    set.Add(neighbour);
                 }
-            }
 
-            return availableNeighbours;
+                return set;
+            });
         }
     }
 }

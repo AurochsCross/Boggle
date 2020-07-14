@@ -5,10 +5,9 @@ namespace Boggle.Utilities
 {
     public class TrieDictionaryReader
     {
-        static public Trie ReadAndGenerate(string dictionaryPath)
+        public static Trie ReadAndGenerate(string dictionaryPath)
         {
             var result = new Trie();
-
             FileStream fileStream = new FileStream(dictionaryPath, FileMode.Open);
             using (StreamReader reader = new StreamReader(fileStream))
             {

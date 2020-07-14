@@ -9,7 +9,7 @@ namespace Tests
     public class TrieTest
     {
         [TestMethod]
-        public void TrieCreateFromSingleWordTest()
+        public void TrieIsCreatedFromSingleWord()
         {
             var word = "test";
             var trie = new Trie();
@@ -20,7 +20,7 @@ namespace Tests
         }
 
         [TestMethod]
-        public void TrieCreateFromSeveralWordsTest()
+        public void TrieIsCreatedFromSeveralWords()
         {
             List<string> words = new List<string> { "test", "tent", "ball" };
             var trie = new Trie();
@@ -31,7 +31,7 @@ namespace Tests
         }
 
         [TestMethod]
-        public void TrieGetPrefixDoGetTest()
+        public void TrieFindsCorrectPrefix()
         {
             var testWord = "tes";
             List<string> words = new List<string> { "test", "tent", "ball" };
@@ -44,7 +44,7 @@ namespace Tests
         }
 
         [TestMethod]
-        public void TrieGetPrefixDoNotGetTest()
+        public void TrieDoesNotGetCorrectPrefixForNonExistingSeach()
         {
             var testWord = "tender";
             List<string> words = new List<string> { "test", "tent", "ball" };
@@ -57,7 +57,7 @@ namespace Tests
         }
 
         [TestMethod]
-        public void TriePrefixIsStandalone()
+        public void TrieFindsStandAlonePrefixForExistingSearch()
         {
             var testWord = "test";
             List<string> words = new List<string> { "test", "tent", "ball" };
@@ -70,7 +70,7 @@ namespace Tests
         }
 
         [TestMethod]
-        public void TriePrefixIsNotStandalone()
+        public void TrieFindsNonStandAlonePrefixForNonExistingSearch()
         {
             var testWord = "tes";
             List<string> words = new List<string> { "test", "tent", "ball" };
@@ -83,7 +83,7 @@ namespace Tests
         }
 
         [TestMethod]
-        public void TrieSearchDidFindTest()
+        public void TrieFindsExistingSearch()
         {
             List<string> words = new List<string> { "test", "tent", "ball" };
             var trie = new Trie();
@@ -91,11 +91,11 @@ namespace Tests
 
             var didFind = trie.Search("test");
 
-            Assert.AreEqual(didFind, true);
+            Assert.IsTrue(didFind);
         }
 
         [TestMethod]
-        public void TrieSearchDidNotFindTest()
+        public void TrieDoesNotFindNonExistingSearch()
         {
             List<string> words = new List<string> { "test", "tent", "ball" };
             var trie = new Trie();
@@ -103,11 +103,11 @@ namespace Tests
 
             var didFind = trie.Search("tes");
 
-            Assert.AreEqual(didFind, false);
+            Assert.IsFalse(didFind);
         }
 
         [TestMethod]
-        public void TrieCreateFromFile()
+        public void TrieIsCreatedFromFile()
         {
             var fileLocation = "Assets/Dictionaries/Dictionary_CountSize10.txt";
 
@@ -117,7 +117,7 @@ namespace Tests
         }
 
         [TestMethod]
-        public void TrieCreateFromLargeSetFile()
+        public void TrieIsCreatedAndSearchesInLargeSetFile()
         {
             var fileLocation = "Assets/Dictionaries/Dictionary_Big2.txt";
 

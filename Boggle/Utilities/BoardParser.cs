@@ -19,9 +19,9 @@ namespace Boggle.Utilities
                 {
                     string line = reader.ReadLine();
 
-                    for (var index = 0; index < parameters[1]; index++)
+                    for (var index = 0; index < parameters[0]; index++)
                     {
-                        result[currentLine, index] = line[index];
+                        result[index, currentLine] = line[index];
                     }
 
                     currentLine++;

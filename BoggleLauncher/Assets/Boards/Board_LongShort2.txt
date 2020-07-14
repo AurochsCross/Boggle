@@ -1,0 +1,7 @@
+﻿4 6
+long
+sxxx
+hxxx
+oxxx
+rxxx
+txxx
