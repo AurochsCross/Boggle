@@ -31,7 +31,7 @@ namespace Tests
         [TestMethod]
         public void BigWordsScoreCorrectAmountOfPoints()
         {
-            string[] words = { "abcfwefowooo", "degfwegweiwecw", "ghiewweiiigwe", "jklmnocweiijijiwe", "mnopqrswegjiwjicwe" };
+            string[] words = { "wrdeight", "degfwegweiwecw", "ghiewweiiigwe", "jklmnocweiijijiwe", "mnopqrswegjiwjicwe" };
 
             BoggleResults results = new BoggleResults(words);
             var score = results.Score;

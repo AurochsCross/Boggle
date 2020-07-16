@@ -34,27 +34,31 @@ namespace Boggle.Solvers
             var currentChar = board[x, y];
             var currentNode = lastNode.FindChildNode(currentChar);
 
-            if (currentNode != null)
+
+            if (currentNode == null)
+                return;
+
+            assembledWord += currentChar;
+            if (currentChar == 'q')
             {
-                assembledWord += currentChar;
-                if (currentChar == 'q')
-                {
-                    assembledWord += 'u';
-                    currentNode = currentNode.FindChildNode('u');
-                }
+                assembledWord += 'u';
+                currentNode = currentNode.FindChildNode('u');
 
-                if (currentNode.IsStandalone)
-                    foundWords.Add(assembledWord);
-
-                visited.Add((x, y));
-
-                foreach (var neighbour in Mover.AvailableNeighbours(visited, x, y, board.GetLength(0), board.GetLength(1)))
-                {
-                    Find(currentNode, assembledWord, board, visited, x + neighbour.Item1, y + neighbour.Item2);
-                }
-
-                visited.Remove((x, y));
+                if (currentNode == null)
+                    return;
             }
+
+            if (currentNode != null && currentNode.IsStandalone && currentNode.Depth > 2)
+                foundWords.Add(assembledWord);
+
+            visited.Add((x, y));
+
+            foreach (var neighbour in Mover.AvailableNeighbours(visited, x, y, board.GetLength(0), board.GetLength(1)))
+            {
+                Find(currentNode, assembledWord, board, visited, x + neighbour.Item1, y + neighbour.Item2);
+            }
+
+            visited.Remove((x, y));
         }
     }
 }

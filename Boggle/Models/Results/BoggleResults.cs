@@ -16,7 +16,7 @@ namespace Boggle.Models.Results
                 return Words.Aggregate(0, (accumulate, value) =>
                 {
                     var length = value.Length;
-                    if (length <= _scores.Length)
+                    if (length < _scores.Length)
                     {
                         accumulate += _scores[length];
                     }
