@@ -18,6 +18,7 @@ namespace Boggle.Solvers
 
         public IResults FindWords(char[,] board)
         {
+            foundWords = new HashSet<string>();
             for (int x = 0; x < board.GetLength(0); x++)
             {
                 for (int y = 0; y < board.GetLength(1); y++)
