@@ -9,7 +9,7 @@ namespace Boggle.Solvers
     public class TrieDepthSolver: ISolver
     {
         private Trie _trie;
-        private HashSet<string> foundWords = new HashSet<string>();
+        private HashSet<string> _foundWords;
 
         public TrieDepthSolver(string dictionaryPath)
         {
@@ -18,7 +18,7 @@ namespace Boggle.Solvers
 
         public IResults FindWords(char[,] board)
         {
-            foundWords = new HashSet<string>();
+            _foundWords = new HashSet<string>();
             for (int x = 0; x < board.GetLength(0); x++)
             {
                 for (int y = 0; y < board.GetLength(1); y++)
@@ -27,7 +27,10 @@ namespace Boggle.Solvers
                 }
             }
 
-            return new BoggleResults(foundWords);
+            var result = new BoggleResults(_foundWords);
+            _foundWords = null;
+
+            return result;
         }
 
         private void Find(Node lastNode, string assembledWord, char[,] board, HashSet<(int, int)> visited, int x, int y)
@@ -50,7 +53,7 @@ namespace Boggle.Solvers
             }
 
             if (currentNode != null && currentNode.IsStandalone && currentNode.Depth > 2)
-                foundWords.Add(assembledWord);
+                _foundWords.Add(assembledWord);
 
             visited.Add((x, y));
 
