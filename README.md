@@ -1,1 +1,2 @@
-Boggle
+# Boggle
+Boggle puzzle solver
